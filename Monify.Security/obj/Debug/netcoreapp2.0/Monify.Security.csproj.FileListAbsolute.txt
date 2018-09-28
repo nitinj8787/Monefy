@@ -1,7 +1,0 @@
-C:\Users\njain\source\repos\Workspace\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monify.Security.csproj.CoreCompileInputs.cache
-C:\Users\njain\source\repos\Workspace\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monify.Security.AssemblyInfoInputs.cache
-C:\Users\njain\source\repos\Workspace\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monify.Security.AssemblyInfo.cs
-C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monify.Security.csprojAssemblyReference.cache
-C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monify.Security.csproj.CoreCompileInputs.cache
-C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monify.Security.AssemblyInfoInputs.cache
-C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monify.Security.AssemblyInfo.cs
