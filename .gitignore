@@ -1,1 +1,7 @@
-.vs
+.vs\*
+*.suo
+*.user
+bin
+obj
+packages
+debug
