@@ -1,0 +1,12 @@
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\bin\Debug\netcoreapp2.0\Monefy.Security.deps.json
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\bin\Debug\netcoreapp2.0\Monefy.Security.dll
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\bin\Debug\netcoreapp2.0\Monefy.Security.pdb
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\bin\Debug\netcoreapp2.0\Monefy.Data.Model.dll
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\bin\Debug\netcoreapp2.0\Monefy.Data.Model.pdb
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monefy.Security.csprojAssemblyReference.cache
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monefy.Security.csproj.CoreCompileInputs.cache
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monefy.Security.AssemblyInfoInputs.cache
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monefy.Security.AssemblyInfo.cs
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monefy.Security.csproj.CopyComplete
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monefy.Security.dll
+C:\Users\njain\source\repos\Workspace1\Monefy\Monify.Security\obj\Debug\netcoreapp2.0\Monefy.Security.pdb

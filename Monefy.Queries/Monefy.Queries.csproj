@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Monefy.Api.Models\Monefy.Api.Models.csproj" />
+    <ProjectReference Include="..\Monefy.Data.Model\Monefy.Data.Model.csproj" />
+  </ItemGroup>
+
+</Project>

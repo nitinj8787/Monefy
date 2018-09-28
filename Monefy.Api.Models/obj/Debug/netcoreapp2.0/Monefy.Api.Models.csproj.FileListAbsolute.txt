@@ -1,0 +1,16 @@
+C:\Users\njain\source\repos\Workspace\Monefy\Monefy.Api.Models\bin\Debug\netcoreapp2.0\Monefy.Api.Models.deps.json
+C:\Users\njain\source\repos\Workspace\Monefy\Monefy.Api.Models\bin\Debug\netcoreapp2.0\Monefy.Api.Models.dll
+C:\Users\njain\source\repos\Workspace\Monefy\Monefy.Api.Models\bin\Debug\netcoreapp2.0\Monefy.Api.Models.pdb
+C:\Users\njain\source\repos\Workspace\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.csproj.CoreCompileInputs.cache
+C:\Users\njain\source\repos\Workspace\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.AssemblyInfoInputs.cache
+C:\Users\njain\source\repos\Workspace\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.AssemblyInfo.cs
+C:\Users\njain\source\repos\Workspace\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.dll
+C:\Users\njain\source\repos\Workspace\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.pdb
+C:\Users\njain\source\repos\Workspace1\Monefy\Monefy.Api.Models\bin\Debug\netcoreapp2.0\Monefy.Api.Models.deps.json
+C:\Users\njain\source\repos\Workspace1\Monefy\Monefy.Api.Models\bin\Debug\netcoreapp2.0\Monefy.Api.Models.dll
+C:\Users\njain\source\repos\Workspace1\Monefy\Monefy.Api.Models\bin\Debug\netcoreapp2.0\Monefy.Api.Models.pdb
+C:\Users\njain\source\repos\Workspace1\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.csproj.CoreCompileInputs.cache
+C:\Users\njain\source\repos\Workspace1\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.AssemblyInfoInputs.cache
+C:\Users\njain\source\repos\Workspace1\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.AssemblyInfo.cs
+C:\Users\njain\source\repos\Workspace1\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.dll
+C:\Users\njain\source\repos\Workspace1\Monefy\Monefy.Api.Models\obj\Debug\netcoreapp2.0\Monefy.Api.Models.pdb
