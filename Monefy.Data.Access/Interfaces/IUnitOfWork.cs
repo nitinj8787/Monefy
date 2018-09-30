@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Monefy.Data.Access.Interfaces
 {
@@ -20,7 +21,7 @@ namespace Monefy.Data.Access.Interfaces
 
         void Commit();
 
-        void CommitAsync();
+        Task CommitAsync();
 
         void Attach<T>(T obj) where T : class;
     }

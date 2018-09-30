@@ -16,9 +16,10 @@ namespace Monefy.Queries.Interfaces
 
         Task<Expense> Create(CreateExpenseModel createExpenseModel);
 
-        Task<Expense> Update(UpdateExpenseModel updateExpenseModel);
+        Task<Expense> Update(int expenseId, UpdateExpenseModel updateExpenseModel);
 
-        Task<Expense> Delete(int id);
+        Task Delete(int id);
+
 
     }
 }

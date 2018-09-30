@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Monefy.Api.Common\Monefy.Api.Common.csproj" />
     <ProjectReference Include="..\Monefy.Api.Models\Monefy.Api.Models.csproj" />
     <ProjectReference Include="..\Monefy.Data.Access\Monefy.Data.Access.csproj" />
     <ProjectReference Include="..\Monefy.Data.Model\Monefy.Data.Model.csproj" />

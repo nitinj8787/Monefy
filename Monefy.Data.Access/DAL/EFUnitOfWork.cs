@@ -39,9 +39,9 @@ namespace Monefy.Data.Access.DAL
             _dbContext.SaveChanges();
         }
 
-        public void CommitAsync()
+        public async Task CommitAsync()
         {
-            _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
         }
 
         public void Remove<T>(T obj) where T : class

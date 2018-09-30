@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
+using Monefy.Api.Common;
+using Monefy.Api.Models.Expenses;
 using Monefy.Data.Access.Interfaces;
 using Monefy.Data.Model;
 using Monefy.Queries.Interfaces;
@@ -105,11 +108,134 @@ namespace Monefy.Queries.Tests
             };
 
 
-            //result.ShouldThrow<NotFoundException>();
+            result.Should().Throw<NotFoundException>();
         }
 
 
+        [Fact]
+        public void GetShouldThrowExceptionIfItemIsNotFoundById()
+        {
+            var expense = new Expense { Id = _random.Next(), UserId = _currentUser.Id };
+            _expenseList.Add(expense);
 
+            Action get = () =>
+            {
+                _query.Get(_random.Next());
+            };
+
+            get.Should().Throw<NotFoundException>();
+        }
+
+        [Fact]
+        public void GetShouldThrowExceptionIfUserIsDeleted()
+        {
+            var expense = new Expense { Id = _random.Next(), UserId = _currentUser.Id, IsDeleted = true };
+            _expenseList.Add(expense);
+
+            Action get = () =>
+            {
+                _query.Get(expense.Id);
+            };
+
+            get.Should().Throw<NotFoundException>();
+        }
+
+        [Fact]
+        public async Task CreateShouldSaveNew()
+        {
+            var model = new CreateExpenseModel
+            {
+                Description = _random.Next().ToString(),
+                Amount = _random.Next(),
+                Comment = _random.Next().ToString(),
+                Date = DateTime.Now
+            };
+
+            var result = await _query.Create(model);
+
+            result.Description.Should().Be(model.Description);
+            result.Amount.Should().Be(model.Amount);
+            result.Comment.Should().Be(model.Comment);
+            result.Date.Should().BeCloseTo(model.Date);
+            result.UserId.Should().Be(_currentUser.Id);
+
+            _uow.Verify(x => x.Add(result));
+            _uow.Verify(x => x.CommitAsync());
+        }
+
+        [Fact]
+        public async Task UpdateShouldUpdateFields()
+        {
+            var user = new Expense { Id = _random.Next(), UserId = _currentUser.Id };
+            _expenseList.Add(user);
+
+            var model = new UpdateExpenseModel
+            {
+                Comment = _random.Next().ToString(),
+                Description = _random.Next().ToString(),
+                Amount = _random.Next(),
+                Date = DateTime.Now
+            };
+
+            var result = await _query.Update(user.Id, model);
+
+            result.Should().Be(user);
+            result.Description.Should().Be(model.Description);
+            result.Amount.Should().Be(model.Amount);
+            result.Comment.Should().Be(model.Comment);
+            result.Date.Should().BeCloseTo(model.Date);
+
+            _uow.Verify(x => x.CommitAsync());
+        }
+
+        [Fact]
+        public void UpdateShoudlThrowExceptionIfItemIsNotFound()
+        {
+            Action create = () =>
+            {
+                var result = _query.Update(_random.Next(), new UpdateExpenseModel()).Result;
+            };
+
+            create.Should().Throw<NotFoundException>();
+        }
+
+        [Fact]
+        public async Task DeleteShouldMarkAsDeleted()
+        {
+            var user = new Expense() { Id = _random.Next(), UserId = _currentUser.Id };
+            _expenseList.Add(user);
+
+            await _query.Delete(user.Id);
+
+            user.IsDeleted.Should().BeTrue();
+
+            _uow.Verify(x => x.CommitAsync());
+        }
+
+        [Fact]
+        public void DeleteShoudlThrowExceptionIfItemIsNotBelongTheUser()
+        {
+            var expense = new Expense() { Id = _random.Next(), UserId = _random.Next() };
+            _expenseList.Add(expense);
+
+            Action execute = () =>
+            {
+                _query.Delete(expense.Id).Wait();
+            };
+
+            execute.Should().Throw<NotFoundException>();
+        }
+
+        [Fact]
+        public void DeleteShoudlThrowExceptionIfItemIsNotFound()
+        {
+            Action execute = () =>
+            {
+                _query.Delete(_random.Next()).Wait();
+            };
+
+            execute.Should().Throw<NotFoundException>();
+        }
 
     }
 
