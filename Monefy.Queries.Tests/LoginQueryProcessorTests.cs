@@ -37,7 +37,7 @@ namespace Expenses.Queries.Tests
             _userList = new List<User>();
             _uow.Setup(x => x.Query<User>()).Returns(() => _userList.AsQueryable());
 
-            _tokenBuilder = new Mock<ITokenBuilder>();
+            _tokenBuilder = new Mock<ITokenBuilder>(MockBehavior.Strict);
             _userQueryProcessor = new Mock<IUserQueryProcessor>();
 
             _context = new Mock<ISecurityContext>(MockBehavior.Strict);
@@ -66,7 +66,7 @@ namespace Expenses.Queries.Tests
             var token = _random.Next().ToString();
 
             _tokenBuilder.Setup(tb => tb.BuildToken(
-                user.Username, 
+                user.Username,
                 It.Is<string[]>(roles => roles.SequenceEqual(user.Roles.Select(x => x.Role.Name).ToArray())),
                     It.Is<DateTime>(d => d - expireTokenDate < TimeSpan.FromSeconds(1))))
                 .Returns(token);
@@ -74,7 +74,7 @@ namespace Expenses.Queries.Tests
             var result = _query.Authenticate(user.Username, password);
 
             result.User.Should().Be(user);
-           // result.Token.Should().Be(token);
+            result.Token.Should().Be(token);
             result.ExpiresAt.Should().BeCloseTo(expireTokenDate, 1000);
         }
 
