@@ -27,7 +27,8 @@ namespace Monefy.Api.IntegrationTests.Common
                              .Build();
 
             //Server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
-           // Client = GetAuthenticatedClient(Username, Password);
+            //Client = GetAuthenticatedClient(Username, Password);
+
 
         }
 
