@@ -36,7 +36,7 @@ namespace MonefyApi
             Configuration = builder.Build();
         }
 
-       
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -69,6 +69,12 @@ namespace MonefyApi
             services.AddMvc(setupAction =>
             {
                 setupAction.Filters.Add(new ApiExceptionFilter());
+
+                var policy = new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser().Build();
+
+               // setupAction.Filters.Add(new CustomAuthorizeFilter(policy));
             })
             .AddJsonOptions(o =>
             {
@@ -88,24 +94,6 @@ namespace MonefyApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-                
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-
-                //app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                //{
-                //    HotModuleReplacement = true
-                //});
-
-                app.UseSwagger();
-
-                // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
-                app.UseSwaggerUI(s => s.SwaggerEndpoint("swagger/v1/swagger.json", "My API V1"));
-
-            }
-
-
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -114,10 +102,33 @@ namespace MonefyApi
             app.UseStaticFiles();
 
             app.UseAuthentication();
+            
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
 
-            app.UseMvc();
+                app.UseSwagger();
 
-            app.UseExceptionHandler();
+                // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+                app.UseSwaggerUI(s =>
+                {
+
+                    s.SwaggerEndpoint("../swagger/v1/swagger.json", "Monefy API V1");
+                    s.InjectStylesheet("../css/swagger.min.css");
+                });
+            }
+            else
+            {
+                app.UseMvc(routes =>
+                {
+                    routes.MapRoute(
+                        "default",
+                        "{controller=Home}/{action=Index}/{id?}");
+                });
+                app.UseExceptionHandler("/Home/Error");
+            }
+
+            //app.UseMvc();
 
 
         }

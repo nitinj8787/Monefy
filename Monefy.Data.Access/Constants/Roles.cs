@@ -9,5 +9,6 @@ namespace Monefy.Data.Access.Constants
         public const string Administrator = "Administrator";
         public const string Manager = "Manager";
         public const string AdministratorOrManager = "Administrator,Manager";
+        public const string NormalUser = "User";
     }
 }

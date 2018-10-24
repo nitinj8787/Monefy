@@ -20,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monefy.Api.Common", "Monefy
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monefy.Api.IntegrationTests", "Monefy.Api.IntegrationTests\Monefy.Api.IntegrationTests.csproj", "{D0DF5DB6-7529-4F27-AD5B-DF41399D6E06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonefyApi", "MonefyApi\MonefyApi.csproj", "{A3951714-A714-46D1-A574-606C16F8B1E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyApi", "MonefyApi\MonefyApi.csproj", "{A3951714-A714-46D1-A574-606C16F8B1E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

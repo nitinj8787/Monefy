@@ -17,7 +17,7 @@ namespace Monefy.Data.Model
         public string LastName { get; set; }
         public bool IsDeleted { get; set; }
 
-        public IList<UserRole> Roles { get; set; }
+        public virtual IList<UserRole> Roles { get; set; }
 
     }
 }

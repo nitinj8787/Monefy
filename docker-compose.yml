@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  monefy.api.integrationtests:
+    image: ${DOCKER_REGISTRY}monefyapiintegrationtests
+    build:
+      context: .
+      dockerfile: Monefy.Api.IntegrationTests\Dockerfile
