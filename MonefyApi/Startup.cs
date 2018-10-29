@@ -89,6 +89,7 @@ namespace MonefyApi
                 c.SwaggerDoc("v1", new Info { Title = "Monefy", Version = "v1" });
                 c.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,7 +101,7 @@ namespace MonefyApi
             InitDatabase(app);
 
             app.UseStaticFiles();
-
+                        
             app.UseAuthentication();
             
             if (env.IsDevelopment())
@@ -128,9 +129,9 @@ namespace MonefyApi
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            //app.UseMvc();
+            app.UseMvc();
 
-
+            
         }
 
         private void InitDatabase(IApplicationBuilder app)

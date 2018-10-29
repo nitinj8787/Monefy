@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Monefy.Api.IntegrationTests.Common;
+using Monefy.Api.IntegrationTests.Helpers;
 using Monefy.Api.Models.User;
 using Newtonsoft.Json;
 using System;
@@ -47,6 +48,12 @@ namespace Monefy.Api.IntegrationTests.Users
             result.StatusCode.Should().Be((new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.NotFound }).StatusCode);
         }
 
+        public async Task<UserModel> GetItemById(HttpClient client, int id)
+        {
+            var result = await client.GetAsync($"api/users/{id}");
+
+            return JsonConvert.DeserializeObject<UserModel>(result.Content.ReadAsStringAsync().Result);
+        }
 
         [Fact]
         public async Task ShouldReturnForbiddenExceptionForUserWhoIsNotAdministratorOrManager()

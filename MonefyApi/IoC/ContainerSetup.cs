@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using AutoQueryable.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +30,13 @@ namespace MonefyApi.IoC
             AddQueries(services);
             ConfigureAutoMapper(services);
             ConfigureAuth(services);
+            AddQueryable(services);
+        }
+
+        private static void AddQueryable(IServiceCollection services)
+        {
+            // Add AutoQueryable
+            services.AddAutoQueryable(s => s.DefaultToTake = 10);
         }
 
         private static void ConfigureAuth(IServiceCollection services)

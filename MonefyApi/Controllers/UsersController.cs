@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoQueryable.AspNetCore.Filter.FilterAttributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Monefy.Api.Models.User;
@@ -21,14 +22,15 @@ namespace MonefyApi.Controllers
         private readonly IUserQueryProcessor _userQueryProcessor;
         private readonly IAutoMapper _autoMapper;
 
-     
-        public UsersController(IUserQueryProcessor userQueryProcessor, IAutoMapper autoMapper )
+
+        public UsersController(IUserQueryProcessor userQueryProcessor, IAutoMapper autoMapper)
         {
             _userQueryProcessor = userQueryProcessor;
             _autoMapper = autoMapper;
-         }
+        }
 
         [HttpGet]
+        [AutoQueryable]
         public IQueryable<UserModel> Get()
         {
             var result = _userQueryProcessor.Get();
@@ -41,7 +43,7 @@ namespace MonefyApi.Controllers
         [HttpGet("{id}")]
         public UserModel Get(int id)
         {
-            
+
             var result = _userQueryProcessor.Get(id);
 
             var model = _autoMapper.Map<UserModel>(result);
@@ -54,6 +56,14 @@ namespace MonefyApi.Controllers
         {
             await _userQueryProcessor.Delete(id);
 
+        }
+
+        [HttpPut("{id}")]
+       
+        public async Task UpdateExisingUser([FromBody] UserModel model, int id)
+        {
+            
+            await _userQueryProcessor.Update(id, _autoMapper.Map<UdpateUserModel>(model));
         }
     }
 }
