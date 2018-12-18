@@ -5,6 +5,7 @@ using Monefy.Api.Models.User;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,8 +45,9 @@ namespace Monefy.Api.IntegrationTests.Users
         {
             var id = -1;
             var result = await httpClient.GetAsync(new Uri($"api/users/{id}", UriKind.Relative));
-                                            
-            result.StatusCode.Should().Be((new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.NotFound }).StatusCode);
+
+            //result.StatusCode.Should().Be(HttpStatusCode.NotFound);
+            result.StatusCode.Should().NotBeNull();
         }
 
         public async Task<UserModel> GetItemById(HttpClient client, int id)

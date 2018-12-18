@@ -52,7 +52,7 @@ namespace Monefy.Data.Access.DAL
 
         public void Dispose()
         {
-            _dbContext.Dispose();
+            _dbContext = null;
         }
 
         public IQueryable<T> Query<T>() where T : class

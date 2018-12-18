@@ -13,7 +13,11 @@
     <PackageReference Include="AutoQueryable" Version="2.0.9-beta" />
     <PackageReference Include="AutoQueryable.AspNetCore.Swagger" Version="2.0.5-beta" />
     <PackageReference Include="AutoQueryable.Extensions.DependencyInjection" Version="2.0.5-beta" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="3.0.0" />
