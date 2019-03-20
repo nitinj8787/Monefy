@@ -90,6 +90,7 @@ namespace MonefyApi
                 c.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
             });
 
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,19 +99,19 @@ namespace MonefyApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            InitDatabase(app);
+           // InitDatabase(app);
 
             app.UseStaticFiles();
                         
             app.UseAuthentication();
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
 
                 app.UseSwagger();
 
-                // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+                //Enable middleware to serve swagger - ui(HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
                 app.UseSwaggerUI(s =>
                 {
 
@@ -131,7 +132,16 @@ namespace MonefyApi
 
             app.UseMvc();
 
-            
+            app.UseCors(builder => builder
+
+               .AllowAnyOrigin()
+
+               .AllowAnyMethod()
+
+               .AllowAnyHeader()
+
+               .AllowCredentials());
+
         }
 
         private void InitDatabase(IApplicationBuilder app)
